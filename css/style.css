@@ -1,0 +1,30 @@
+.screen{
+  height: 700px;
+  width: 70%;
+  min-width: 860px;
+  margin: auto;
+  margin-top: 25px;
+  border: 10px;
+  border-color: red;
+  background-color: black;
+}
+.gameBox{
+  position: relative;
+  height: 690px;
+  width: 100%;
+  border: 5px solid;
+  border-color: red;
+}
+.player{
+  height: auto;
+  width: auto;
+  bottom: 35px;
+  background-color: blue;
+}
+.obstacle{
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: grey;
+}
