@@ -13,6 +13,7 @@ gameLoop();
 
 function gameLoop() {
   if (playerDead == false) {
+    checkForDeath();
     dropObstacles();
     drawObstacles();
     setTimeout(gameLoop, 180);
@@ -20,14 +21,20 @@ function gameLoop() {
 }
 
 function checkForDeath() {
-  // get player coordinates
-  var death = document.getElementsByClassName('player obstacle');
-  if (death == false) {
-    // do nothing
-  } else {
-    // end game
-    console.log('YOU DIED');
-    playerDead = true;
+  var table = document.getElementsByClassName('gameBox')[0].children[0].children;
+  for (var i = 0; i < grid.length; i++) {
+    var row = table[i].children;
+    for (var j = 0; j < row.length; j++) {
+      if(row[j].classList.contains('obstacle') && row[j].classList.contains('player') ){
+        row[j].classList.remove('player');
+        console.log('YOU DIED');
+        console.log(score);
+        playerDead = true;
+      }
+      else{
+        //do nothing
+      }
+    }
   }
 }
 
@@ -36,6 +43,7 @@ function dropObstacles() {
   for (var i = 0; i < grid.length; i++) {
     if (grid[9][i] == 1) {
       grid[9][i] = 0;
+      score++;
     }
   }
 
