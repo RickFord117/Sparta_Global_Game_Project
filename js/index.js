@@ -6,7 +6,9 @@ for (var i = 0; i < grid.length; i++) {
   }
 }
 var playerDead = false;
+var isPaused = false;
 var score = 0;
+document.getElementById("score").innerHTML = score;
 var spawn = 0.07;
 gameLoop();
 
@@ -82,7 +84,20 @@ function drawObstacles() {
     }
   }
 }
+//brings up menu screen
+document.getElementById('menubtn').addEventListener('click', function(){
+  document.getElementById("menuScreen").style.display = "block";
+  document.getElementById("screen").style.display = "none";
+  document.getElementById("menubtn").style.display= "none";
 
+  document.getElementById("resume").addEventListener("click", function(){
+    document.getElementById("menuScreen").style.display = "none";
+    document.getElementById("screen").style.display = "block";
+    document.getElementById("menubtn").style.display= "block";
+  });
+});
+
+//reset function
 document.getElementById('reset').addEventListener('click', function(){
   //get table
   var table = document.getElementsByClassName('gameBox')[0].children[0].children;
@@ -103,7 +118,12 @@ document.getElementById('reset').addEventListener('click', function(){
   var row = table[9].children;
   row[5].classList.add('player');
   playerDead = false;
+  score = 0;
+  document.getElementById("score").innerHTML = 0;
   gameLoop();
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("screen").style.display = "block";
+  document.getElementById("menubtn").style.display= "block";
 });
 
 
@@ -143,11 +163,11 @@ document.addEventListener('keydown', function(e) {
       // get new coordinates
       var table = document.getElementsByClassName('gameBox')[0].children;
       var row = table[0].children[y].children;
-      var col = row[x];
+      var square = row[x];
       // if you can move into the square then do so
-      if (col.classList == '') {
+      if (square.classList == '') {
         player.classList.remove('player');
-        col.classList.add('player');
+        square.classList.add('player');
       }
       break;
       //for S(down)
@@ -159,11 +179,11 @@ document.addEventListener('keydown', function(e) {
       // get new coordinates
       var table = document.getElementsByClassName('gameBox')[0].children;
       var row = table[0].children[y].children;
-      var col = row[x];
+      var square = row[x];
       // if you can move into the square then do so
-      if (col.classList == '') {
+      if (square.classList == '') {
         player.classList.remove('player');
-        col.classList.add('player');
+        square.classList.add('player');
       }
       break;
       //for D(right)
@@ -175,11 +195,11 @@ document.addEventListener('keydown', function(e) {
       // get new coordinates
       var table = document.getElementsByClassName('gameBox')[0].children;
       var row = table[0].children[y].children;
-      var col = row[x];
+      var square = row[x];
       // if you can move into the square then do so
-      if (col.classList == '') {
+      if (square.classList == '') {
         player.classList.remove('player');
-        col.classList.add('player');
+        square.classList.add('player');
       }
       break;
   }

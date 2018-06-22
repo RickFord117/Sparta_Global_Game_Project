@@ -10,6 +10,19 @@
 
 <body>
   <h1>Watch Out!</h1>
+  <div id="menuScreen">
+    <h2>How to play</h2>
+  </br>
+    <p>Avoid the incoming obstacles for as long as you can!</p>
+  </br>
+    <h2>Controls</h2>
+    <p>Use W A S D to move up, left, down and right</p>
+    <img src="images/wasd.jpg" alt="">
+  </br>
+    <button id="resume" type="button" name="resume">RESUME</button>
+    <button id="reset" type="button" name="reset">RESET</button>
+
+  </div>
   <div id="screen">
     <table class="gameBox">
       <tr>
@@ -134,23 +147,12 @@
       </tr>
     </table>
   </div>
-<div class="details">
   <div class="score">
-    <h2>Score: </h2>
+    <h3>Score: </h3>
     <p id="score"></p>
     </br>
-    <p></p>
   </div>
-  <div id="leaderboard">
-    <h2>Leaderboard: </h2>
-    <ol>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ol>
-  </div>
-  <button id="reset" type="button" name="reset">RESET</button>
-</div>
+  <button id="menubtn" type="button" name="pause">Menu</button>
 </body>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
