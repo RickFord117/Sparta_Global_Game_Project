@@ -1,4 +1,4 @@
-.screen{
+#screen{
   height: 700px;
   width: 70%;
   min-width: 860px;
@@ -23,8 +23,12 @@
 }
 .obstacle{
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   border-radius: 100%;
   background-color: grey;
+}
+body{
+  text-align: center;
+  font-family: sans-serif;
 }
